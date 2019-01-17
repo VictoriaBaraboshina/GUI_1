@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header__container">
+                <div class="header__logo">
+                    <!--img src="../asset/audio.svg"-->
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/71falJGThfL.png">
+                </div>
+                <div class="header__title">music</div>
+                <div class="header__menu">
+                    <div class="header__menu__icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="header__menu__links">
+                        <a class="header__menu__links-item" href="/">вход</a>
+                        <a class="header__menu__links-item" href="/">регистрация</a>
+                        <a class="header__menu__links-item" href="/">подписаться на RSS</a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="menu">
+            <div class="menu__container">
+                <a class="menu__links-item" href="/">главное</a>
+                <a class="menu__links-item" href="/">рекомендация</a>
+                <a class="menu__links-item" href="/">жанры</a>
+                <a class="menu__links-item" href="/">радио</a>
+            </div>
+
+
+        </div>
+        <main class="content">
+            <article>
+                <p>ПЛЕЙЛИСТ</p>
+                <div class="playlist_header">
+                    Ready Player One
+                </div>
+            </article>
+            <div class="list">
+                <div id='app'>
+                    <div v-for="item in content">
+                        <div class="item">
+                            <div class="item__buttom">
+                                <button class='button' onclick="startMusicEvent(this)"></button>
+                            </div>
+                            <div class="item__content_column">
+                                <div class="item__name_song">{{item.musician}} - {{item.name}}</div>
+                                <div class="item__name_album"> {{item.album}} </div>
+                            </div>
+                            <div class="item__assesment">
+                                <i class="fas fa-star item__assesment__star"></i> {{item.assessment}}
+                            </div>
+                            <div class="item__duration">{{item.duration}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer__copyright">
+                <p>© VictoriaB 2018</p>
+            </div>
+            <div class="footer__container">
+                <a class="footer__links-item" href="/">контакты</a>
+                <a class="footer__links-item" href="/">помощь</a>
+                <a class="footer__links-item" href="/">партнерские продукты</a>
+            </div>
+
+        </footer>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            content: [{
+                name: 'Hungry Like The Wolf',
+                musician: 'Duran Duran',
+                album: 'Rio',
+                assessment: '5',
+                duration: '3:40'
+            }, {
+                name: 'Sweet Dreams',
+                musician: 'Eurythmics',
+                album: 'Sweet Dreams (Are Made of This)',
+                assessment: '4',
+                duration: '3:38'
+            }, {
+                name: 'Rebel Yell',
+                musician: 'Billy Idol',
+                album: 'Rebel Yell',
+                assessment: '3',
+                duration: '4:49'
+            }, {
+                name: 'Safety Dance',
+                musician: 'Men Without Hats',
+                album: 'Greatest',
+                assessment: '4',
+                duration: '2:44'
+            }, {
+                name: 'Dancing With Myself',
+                musician: 'Billy Idol',
+                album: 'Vital Idol',
+                assessment: '4',
+                duration: '5:59'
+            }, {
+                name: 'World In My Eyes',
+                musician: 'Depeche Mode',
+                album: 'Violator',
+                assessment: '4',
+                duration: '4:27'
+            }, {
+                name: 'Blue Monday',
+                musician: 'New Order',
+                album: 'Substance',
+                assessment: '3',
+                duration: '1:12'
+            }, {
+                name: 'We\'re Not Gonna Take It',
+                musician: 'Twisted Sister',
+                album: 'Stay Hungry',
+                assessment: '4',
+                duration: '3:38'
+            }, {
+                name: 'I Hate Myself for Loving You',
+                musician: 'Joan Jett',
+                album: 'Up Your Alley',
+                assessment: '4',
+                duration: '4:07'
+            }, {
+                name: 'Tom Sawyer',
+                musician: 'Rush',
+                album: 'Moving Pictures',
+                assessment: '4',
+                duration: '4:32'
+            }, {
+                name: 'One Way Or Another',
+                musician: 'Blondie',
+                album: 'Parallel Lines',
+                assessment: '5',
+                duration: '3:36'
+            }, {
+                name: 'Take On Me',
+                musician: 'a-ha',
+                album: 'Hunting High and Low (Deluxe Edition)',
+                assessment: '4',
+                duration: '3:45'
+            }, {
+                name: 'Stand On It',
+                musician: 'Bruce Springsteen',
+                album: 'Just Can\'t Sit Down Music',
+                assessment: '5',
+                duration: '3:05'
+            }, {
+                name: 'Jump',
+                musician: 'Van Halen',
+                album: '1984',
+                assessment: '5',
+                duration: '4:03'
+            }, {
+                name: 'You Make My Dreams',
+                musician: 'Hall & Oates',
+                album: 'Gotta Lotta Nerve',
+                assessment: '5',
+                duration: '3:07'
+            }, {
+                name: 'You Should Be Dancing',
+                musician: 'Bee Gees',
+                album: 'Subway',
+                assessment: '3',
+                duration: '4:17'
+            }]
+        }
+    })
+</script>
